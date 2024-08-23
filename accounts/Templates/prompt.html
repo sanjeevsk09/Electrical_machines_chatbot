@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Prompt Page</title>
+</head>
+<body>
+    <div>
+        <h2>Stored Prompts</h2>
+        <ul id="promptList">
+            <!-- Prompts will be appended here dynamically -->
+        </ul>
+    </div>
+
+    <div>
+        <h1>Enter Your Prompt</h1>
+        <form id="promptForm">
+            <input type="text" id="user-input" placeholder="Type your message here..." required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        // JavaScript to handle form submission and prompt display
+        document.getElementById('promptForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Get the user input
+            const userInput = document.getElementById('user-input').value;
+
+            if (userInput.trim() === '') return; // Ignore empty inputs
+
+            // Create a new list item for the prompt
+            const newListItem = document.createElement('li');
+            newListItem.textContent = userInput;
+
+            // Append the new list item to the prompt list
+            document.getElementById('promptList').appendChild(newListItem);
+
+            // Clear the input field
+            document.getElementById('user-input').value = '';
+        });
+    </script>
+</body>
+</html>
