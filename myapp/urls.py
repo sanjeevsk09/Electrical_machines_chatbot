@@ -20,10 +20,14 @@ from django.urls import path, include
 from accounts import views as account_views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', account_views.login_view, name='login'),  # Root URL mapped to login_view
-    path('login/', account_views.login_view, name='login'),  # Optional: Separate login path
-      # Example signup view
-    path('accounts/', include('accounts.urls')),  # Include the app’s URLs if you have more views
+    # path('admin/', admin.site.urls),
+    # path('', account_views.login_view, name='login'),  # Root URL mapped to login_view
+    # path('login/', account_views.login_view, name='login'),
+    # path('prompt/', account_views.prompt_view, name='prompt'),
+    #     # Optional: Separate login path
+    #   # Example signup view
+    # path('accounts/', include('accounts.urls'))
+      # Include the app’s URLs if you have more views
+      path("", include("accounts.urls")),
 ]
 
